@@ -1,164 +1,77 @@
 // Dark theme
 @use "sass:color";
-
-// Variables
-$bg-color: #121212;
-$text-color: #e0e0e0;
-$heading-color: #ffffff;
-$link-color: #bb86fc;
-$link-hover-color: #7c4dff;
-$code-bg: #1e1e1e;
-$border-color: #333333;
-$blockquote-color: #aaaaaa;
-$highlight-bg: #333333;
+@use "var.init" with (
+  $bg-color: #121212,
+  $text-color: #e0e0e0,
+  $heading-color: #ffffff,
+  $link-color: #bb86fc,
+  $link-hover-color: #7c4dff,
+  $code-bg: #1e1e1e,
+  $border-color: #333333,
+  $blockquote-color: #aaaaaa,
+  $highlight-bg: #333333
+);
+@use "global";
 
 // Styles de base
 body {
-  background-color: $bg-color;
-  color: $text-color;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
+  background-color: var.init.$bg-color;
+  color: var.init.$text-color;
+  font-family: var.init.$base-font-family;
 }
 
 // Typographie
 h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  color: var.init.$heading-color;
 }
 
 h1 {
-  font-size: 2.5rem;
-  border-bottom: 0.0625rem solid $border-color;
-  padding-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid var.init.$border-color;
 }
 
 h2 {
-  font-size: 2rem;
-  border-bottom: 0.0625rem solid $border-color;
-  padding-bottom: 0.3rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-h5 {
-  font-size: 1.25rem;
-}
-
-h6 {
-  font-size: 1rem;
+  border-bottom: 0.0625rem solid var.init.$border-color;
 }
 
 // Liens
 a {
-  color: $link-color;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: var.init.$link-color;
 
   &:hover {
-    color: $link-hover-color;
+    color: var.init.$link-hover-color;
     text-decoration: underline;
-  }
-}
-
-// Paragraphes et texte
-p {
-  margin: 1rem 0;
-}
-
-strong {
-  font-weight: 600;
-}
-
-em {
-  font-style: italic;
-}
-
-// Listes
-ul, ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
-
-  li {
-    margin: 0.5rem 0;
   }
 }
 
 // Blocs de code
 pre {
-  background-color: $code-bg;
-  border-radius: 4px;
-  padding: 1rem;
-  overflow: auto;
-  margin: 1.5rem 0;
+  background-color: var.init.$code-bg;
 
   code {
-    background: none;
-    padding: 0;
-    font-size: 0.9rem;
     color: #e0e0e0;
-    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-family: var.init.$code-font-family;
   }
 }
 
 code {
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
-  font-size: 0.9rem;
+  font-family: var.init.$code-font-family;
 }
 
 // Citations
 blockquote {
-  border-left: 0.25rem solid $link-color;
-  padding-left: 1rem;
-  margin: 1rem 0;
-  color: $blockquote-color;
-
-  p {
-    margin: 0.5rem 0;
-  }
-}
-
-// Images
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  border-radius: 0.25rem;
+  border-left: 0.25rem solid var.init.$link-color;
+  color: var.init.$blockquote-color;
 }
 
 // Tableaux
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-
   th, td {
-    border: 1px solid $border-color;
-    padding: 0.5rem 1rem;
-    text-align: left;
+    border: 1px solid var.init.$border-color;
   }
 
   th {
-    background-color: $highlight-bg;
+    background-color: var.init.$highlight-bg;
     font-weight: 600;
   }
 
@@ -169,23 +82,18 @@ table {
 
 // Séparateurs
 hr {
-  border: none;
-  height: 1px;
-  background-color: $border-color;
-  margin: 2em 0;
+  background-color: var.init.$border-color;
 }
 
 // Styles pour highlight.js
 .hljs {
-  display: block;
-  overflow-x: auto;
-  background: $code-bg;
+  background: var.init.$code-bg;
   color: #e0e0e0;
 }
 
 // Ajustements de focalisation
 *:focus {
-  outline: 0.125rem solid $link-color;
+  outline: 0.125rem solid var.init.$link-color;
   outline-offset: 0.125rem;
 }
 
@@ -197,25 +105,4 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-}
-
-// Unbreakable sections
-.print-section {
-  page-break-inside: avoid;
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
-
-// Force headings to start on a new page
-h1, h2 {
-  page-break-before: always;
-  break-before: always;
-}
-
-// But make sure the first heading doesn't create a blank page
-.container > h1:first-child,
-.container > .print-section:first-child h1,
-.container > .print-section:first-child h2 {
-  page-break-before: avoid;
-  break-before: avoid;
 }

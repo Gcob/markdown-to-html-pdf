@@ -1,34 +1,27 @@
 // Government document theme
 @use "sass:color";
+@use "var.init" with (
+  $bg-color: #ffffff,
+  $text-color: #222222,
+  $heading-color: #003366,
+  $link-color: #0066cc,
+  $link-hover-color: #003366,
+  $code-bg: #f8f8f8,
+  $border-color: #cccccc,
+  $blockquote-color: #444444,
+  $highlight-bg: #f0f7ff,
+  $header-bg: #003366,
+  $accent-color: #8b0000,
+  $base-font-family: 'Times New Roman', Times, serif,
+  $code-font-family: 'Courier New', Courier, monospace,
+  $base-font-size: 12pt,
+  $base-line-height: 1.5,
+  $container-width: none
+);
+@use "global";
 
-// Variables
-$bg-color: #ffffff;
-$text-color: #222222;
-$heading-color: #003366;
-$link-color: #0066cc;
-$link-hover-color: #003366;
-$code-bg: #f8f8f8;
-$border-color: #cccccc;
-$blockquote-color: #444444;
-$highlight-bg: #f0f7ff;
-$header-bg: #003366;
-$accent-color: #8b0000; // Couleur d'accentuation (rouge foncé)
-
-// Styles de base
-body {
-  background-color: $bg-color;
-  color: $text-color;
-  font-family: 'Times New Roman', Times, serif;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  font-size: 12pt;
-}
-
+// En-tête
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
   position: relative;
 
   &::before {
@@ -42,16 +35,15 @@ body {
   }
 }
 
-// En-tête
 .gov-header {
-  border-bottom: 2px solid $border-color;
+  border-bottom: 2px solid var.init.$border-color;
   margin-bottom: 2em;
   padding-bottom: 1em;
 
   .gov-logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: $heading-color;
+    color: var.init.$heading-color;
     margin-bottom: 0.5em;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -60,7 +52,7 @@ body {
   .gov-document-type {
     font-size: 0.9rem;
     text-transform: uppercase;
-    color: $accent-color;
+    color: var.init.$accent-color;
     font-weight: bold;
     letter-spacing: 1px;
   }
@@ -68,7 +60,7 @@ body {
 
 // Typographie
 h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
+  color: var.init.$heading-color;
   margin-top: 1.5em;
   margin-bottom: 0.7em;
   font-weight: bold;
@@ -78,8 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 18pt;
   text-align: center;
-  border-bottom: 1px solid $border-color;
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var.init.$border-color;
   margin-top: 2em;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -87,8 +78,7 @@ h1 {
 
 h2 {
   font-size: 16pt;
-  border-bottom: 1px solid $border-color;
-  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var.init.$border-color;
 }
 
 h3 {
@@ -113,11 +103,11 @@ h6 {
 
 // Liens
 a {
-  color: $link-color;
+  color: var.init.$link-color;
   text-decoration: underline;
 
   &:hover {
-    color: $link-hover-color;
+    color: var.init.$link-hover-color;
   }
 }
 
@@ -125,14 +115,6 @@ a {
 p {
   margin: 0.8em 0;
   text-align: justify;
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
 }
 
 // Listes
@@ -156,66 +138,47 @@ ul {
 
 // Blocs de code
 pre {
-  background-color: $code-bg;
-  border: 1px solid $border-color;
-  padding: 1em;
-  overflow: auto;
-  margin: 1.5em 0;
+  background-color: var.init.$code-bg;
+  border: 1px solid var.init.$border-color;
   font-size: 10pt;
 
   code {
-    background: none;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var.init.$code-font-family;
   }
 }
 
 code {
-  background-color: $code-bg;
-  padding: 0.2em 0.4em;
-  font-family: 'Courier New', Courier, monospace;
+  background-color: var.init.$code-bg;
+  font-family: var.init.$code-font-family;
   font-size: 10pt;
   border: 1px solid #e0e0e0;
 }
 
 // Citations
 blockquote {
-  border-left: 3px solid $heading-color;
+  border-left: 3px solid var.init.$heading-color;
   padding: 0.5em 1em;
-  margin: 1em 0;
-  background-color: $highlight-bg;
-  color: $blockquote-color;
+  background-color: var.init.$highlight-bg;
+  color: var.init.$blockquote-color;
   font-style: italic;
-
-  p {
-    margin: 0.5em 0;
-  }
 }
 
 // Images
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5em auto;
-  border: 1px solid $border-color;
+  border: 1px solid var.init.$border-color;
 }
 
 // Tableaux
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
   font-size: 11pt;
 
   th, td {
-    border: 1px solid $border-color;
+    border: 1px solid var.init.$border-color;
     padding: 0.8em 1em;
-    text-align: left;
   }
 
   th {
-    background-color: $heading-color;
+    background-color: var.init.$heading-color;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -228,18 +191,13 @@ table {
 
 // Séparateurs
 hr {
-  border: none;
-  height: 1px;
-  background-color: $border-color;
-  margin: 2em 0;
+  background-color: var.init.$border-color;
 }
 
 // Styles pour highlight.js
 .hljs {
-  display: block;
-  overflow-x: auto;
-  background: $code-bg;
-  font-family: 'Courier New', Courier, monospace;
+  background: var.init.$code-bg;
+  font-family: var.init.$code-font-family;
 }
 
 // Numéros de page
@@ -248,14 +206,14 @@ hr {
   font-size: 10pt;
   color: #666;
   margin-top: 3em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var.init.$border-color;
   padding-top: 1em;
 }
 
 // Pied de page
 .footer {
   margin-top: 3em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var.init.$border-color;
   padding-top: 1em;
   font-size: 9pt;
   color: #666;
@@ -265,7 +223,7 @@ hr {
 // Numérotation des sections
 .section-number {
   font-weight: normal;
-  color: $accent-color;
+  color: var.init.$accent-color;
   margin-right: 0.5em;
 }
 
@@ -275,7 +233,7 @@ hr {
 
   h2 {
     font-size: 14pt;
-    color: $accent-color;
+    color: var.init.$accent-color;
   }
 }
 
@@ -299,7 +257,7 @@ hr {
   margin-top: 4em;
 
   .signature-line {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var.init.$border-color;
     width: 50%;
     margin: 3em auto 1em;
   }

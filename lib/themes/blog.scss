@@ -1,43 +1,42 @@
 // Thème Blog
 @use "sass:color";
-
-// Variables
-$bg-color: #fafafa;
-$text-color: #333333;
-$heading-color: #222222;
-$link-color: #ff5722;
-$link-hover-color: #e64a19;
-$code-bg: #f5f2f0;
-$border-color: #eeeeee;
-$blockquote-color: #555555;
-$highlight-bg: #fff8f2;
-$sans-font: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-$serif-font: 'Merriweather', Georgia, serif;
+@use "var.init" with (
+  $bg-color: #fafafa,
+  $text-color: #333333,
+  $heading-color: #222222,
+  $link-color: #ff5722,
+  $link-hover-color: #e64a19,
+  $code-bg: #f5f2f0,
+  $border-color: #eeeeee,
+  $blockquote-color: #555555,
+  $highlight-bg: #fff8f2,
+  $sans-font: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+  $serif-font: 'Merriweather', Georgia, serif,
+  $base-font-size: 18px,
+  $base-line-height: 1.7,
+  $container-width: 740px
+);
+@use "global";
 
 // Styles de base
 body {
-  background-color: $bg-color;
-  color: $text-color;
-  font-family: $serif-font;
-  line-height: 1.7;
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
+  background-color: var.init.$bg-color;
+  color: var.init.$text-color;
+  font-family: var.init.$serif-font;
+  font-size: var.init.$base-font-size;
 }
 
 .container {
-  max-width: 740px;
-  margin: 0 auto;
   padding: 3rem 1.5rem;
 }
 
 // Typographie
 h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
+  color: var.init.$heading-color;
   margin-top: 2em;
   margin-bottom: 0.7em;
   font-weight: 700;
-  font-family: $sans-font;
+  font-family: var.init.$sans-font;
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
@@ -52,8 +51,7 @@ h1 {
 h2 {
   font-size: 2rem;
   margin-top: 2.5em;
-  border-bottom: 1px solid $border-color;
-  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var.init.$border-color;
 }
 
 h3 {
@@ -76,14 +74,12 @@ h6 {
 
 // Liens
 a {
-  color: $link-color;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid rgba($link-color, 0.3);
+  color: var.init.$link-color;
+  border-bottom: 1px solid rgba(var.init.$link-color, 0.3);
 
   &:hover {
-    color: $link-hover-color;
-    border-bottom-color: $link-hover-color;
+    color: var.init.$link-hover-color;
+    border-bottom-color: var.init.$link-hover-color;
   }
 }
 
@@ -93,18 +89,9 @@ p {
   font-size: 1.05rem;
 }
 
-strong {
-  font-weight: 700;
-}
-
-em {
-  font-style: italic;
-}
-
 // Listes
 ul, ol {
   margin: 1.5em 0;
-  padding-left: 2em;
 
   li {
     margin: 0.7em 0;
@@ -113,41 +100,35 @@ ul, ol {
 
 // Blocs de code
 pre {
-  background-color: $code-bg;
+  background-color: var.init.$code-bg;
   border-radius: 6px;
   padding: 1.2em;
-  overflow: auto;
   margin: 2em 0;
   font-size: 0.9em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
   code {
-    background: none;
-    padding: 0;
     color: #333;
     font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   }
 }
 
 code {
-  background-color: $code-bg;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+  background-color: var.init.$code-bg;
   font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.85em;
 }
 
 // Citations
 blockquote {
-  border-left: 4px solid $link-color;
+  border-left: 4px solid var.init.$link-color;
   padding: 0.8em 1.2em;
   margin: 2em 0;
-  background-color: $highlight-bg;
-  color: $blockquote-color;
+  background-color: var.init.$highlight-bg;
+  color: var.init.$blockquote-color;
   font-style: italic;
 
   p {
-    margin: 0.5em 0;
     font-size: 1.05rem;
   }
 
@@ -155,7 +136,7 @@ blockquote {
     display: block;
     margin-top: 1em;
     font-size: 0.9em;
-    color: color.adjust($blockquote-color, $lightness: 20%);
+    color: color.adjust(var.init.$blockquote-color, $lightness: 20%);
     font-style: normal;
 
     &:before {
@@ -166,9 +147,6 @@ blockquote {
 
 // Images
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
   margin: 2em auto;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -193,21 +171,17 @@ figure {
 
 // Tableaux
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2em 0;
   font-size: 0.95em;
 
   th, td {
-    border: 1px solid $border-color;
+    border: 1px solid var.init.$border-color;
     padding: 0.8em 1em;
-    text-align: left;
   }
 
   th {
-    background-color: $highlight-bg;
+    background-color: var.init.$highlight-bg;
     font-weight: 600;
-    font-family: $sans-font;
+    font-family: var.init.$sans-font;
   }
 
   tr:nth-child(even) {
@@ -217,10 +191,7 @@ table {
 
 // Séparateurs
 hr {
-  border: none;
-  height: 1px;
-  background-color: $border-color;
-  margin: 3em 0;
+  background-color: var.init.$border-color;
   position: relative;
 
   &:after {
@@ -229,7 +200,7 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $bg-color;
+    background-color: var.init.$bg-color;
     padding: 0 10px;
     color: #aaa;
     font-size: 1.2em;
@@ -241,13 +212,13 @@ hr {
   font-size: 0.85em;
   color: #666;
   margin-top: 2em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var.init.$border-color;
   padding-top: 1em;
 }
 
 // Styles pour highlight.js
 .hljs {
-  background: $code-bg;
+  background: var.init.$code-bg;
   font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
@@ -256,7 +227,7 @@ hr {
   text-align: center;
   margin-bottom: 3em;
   color: #666;
-  font-family: $sans-font;
+  font-family: var.init.$sans-font;
   font-size: 0.9em;
 
   .date {
