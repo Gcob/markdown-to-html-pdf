@@ -1,6 +1,6 @@
 // Dark theme
 @use "sass:color";
-@use "var.init" with (
+@use "var-init" with (
   $bg-color: #121212,
   $text-color: #e0e0e0,
   $heading-color: #ffffff,
@@ -15,63 +15,63 @@
 
 // Styles de base
 body {
-  background-color: var.init.$bg-color;
-  color: var.init.$text-color;
-  font-family: var.init.$base-font-family;
+  background-color: var-init.$bg-color;
+  color: var-init.$text-color;
+  font-family: var-init.$base-font-family;
 }
 
 // Typographie
 h1, h2, h3, h4, h5, h6 {
-  color: var.init.$heading-color;
+  color: var-init.$heading-color;
 }
 
 h1 {
-  border-bottom: 0.0625rem solid var.init.$border-color;
+  border-bottom: 0.0625rem solid var-init.$border-color;
 }
 
 h2 {
-  border-bottom: 0.0625rem solid var.init.$border-color;
+  border-bottom: 0.0625rem solid var-init.$border-color;
 }
 
 // Liens
 a {
-  color: var.init.$link-color;
+  color: var-init.$link-color;
 
   &:hover {
-    color: var.init.$link-hover-color;
+    color: var-init.$link-hover-color;
     text-decoration: underline;
   }
 }
 
 // Blocs de code
 pre {
-  background-color: var.init.$code-bg;
+  background-color: var-init.$code-bg;
 
   code {
     color: #e0e0e0;
-    font-family: var.init.$code-font-family;
+    font-family: var-init.$code-font-family;
   }
 }
 
 code {
   background-color: rgba(255, 255, 255, 0.1);
-  font-family: var.init.$code-font-family;
+  font-family: var-init.$code-font-family;
 }
 
 // Citations
 blockquote {
-  border-left: 0.25rem solid var.init.$link-color;
-  color: var.init.$blockquote-color;
+  border-left: 0.25rem solid var-init.$link-color;
+  color: var-init.$blockquote-color;
 }
 
 // Tableaux
 table {
   th, td {
-    border: 1px solid var.init.$border-color;
+    border: 1px solid var-init.$border-color;
   }
 
   th {
-    background-color: var.init.$highlight-bg;
+    background-color: var-init.$highlight-bg;
     font-weight: 600;
   }
 
@@ -82,18 +82,18 @@ table {
 
 // Séparateurs
 hr {
-  background-color: var.init.$border-color;
+  background-color: var-init.$border-color;
 }
 
 // Styles pour highlight.js
 .hljs {
-  background: var.init.$code-bg;
+  background: var-init.$code-bg;
   color: #e0e0e0;
 }
 
 // Ajustements de focalisation
 *:focus {
-  outline: 0.125rem solid var.init.$link-color;
+  outline: 0.125rem solid var-init.$link-color;
   outline-offset: 0.125rem;
 }
 

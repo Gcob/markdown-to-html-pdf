@@ -1,18 +1,18 @@
 // Global shared styles for all themes
 @use "sass:color";
-@use "var.init";
+@use "var-init";
 
 // Base styles
 body {
-  line-height: var.init.$base-line-height;
+  line-height: var-init.$base-line-height;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: var.init.$container-width;
+  max-width: var-init.$container-width;
   margin: 0 auto;
-  padding: var.init.$container-padding;
+  padding: var-init.$container-padding;
 }
 
 // Typography
