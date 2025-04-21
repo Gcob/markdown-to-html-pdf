@@ -1,81 +1,66 @@
-# Markdown to HTML Converter
+# Markdown to HTML/PDF Converter
 
-Ce projet permet de convertir des fichiers Markdown en pages HTML avec différents thèmes.
+Convert Markdown files to HTML with different themes and export to PDF.
+
+## Demo
+
+Check out the `demo` folder for example Markdown files and usage examples.
 
 ## Installation
 
-1. Clonez ce dépôt :
-   ```
-   git clone <url-du-repo>
-   cd markdown-to-html
-   ```
-
-2. Installez les dépendances :
-   ```
-   npm install
-   ```
-
-3. Pour une installation globale (optionnel) :
-   ```
-   npm install -g .
-   ```
-
-## Utilisation
-
-### Utilisation de base
+This project uses pnpm for faster, disk-space efficient dependency management.
 
 ```bash
-node tohtml.mjs document.md
+# Install pnpm if you don't have it
+npm install -g pnpm
+
+# Install dependencies
+git clone <repo-url>
+cd mdm
+pnpm install
 ```
 
-Cela convertira `document.md` en HTML en utilisant le thème par défaut (light) et ouvrira le fichier HTML généré dans votre navigateur par défaut.
+For global installation (optional): `pnpm install -g .`
 
-### Spécifier un thème
+## Usage
 
-```bash
-node tohtml.mjs document.md -t dark
-# ou
-node tohtml.mjs document.md --theme dark
-```
+### HTML Conversion
 
-### Liste des thèmes disponibles
+Basic: `node tohtml.mjs document.md`
 
-```bash
-node tohtml.mjs --list-themes
-```
+With theme: `node tohtml.mjs document.md -t dark`
 
-### Spécifier un fichier de sortie
+List themes: `node tohtml.mjs --list-themes`
 
-```bash
-node tohtml.mjs document.md -o resultat.html
-```
+Specify output: `node tohtml.mjs document.md -o output.html`
 
-### Ne pas ouvrir le fichier dans le navigateur
+Don't open in browser: `node tohtml.mjs document.md --no-open`
 
-```bash
-node tohtml.mjs document.md --no-open
-```
+Help: `node tohtml.mjs --help`
 
-### Aide
+### PDF Conversion
 
-```bash
-node tohtml.mjs --help
-```
+Convert HTML to PDF: `node topdf.mjs document.html`
 
-## Thèmes disponibles
+Convert Markdown to PDF: `node topdf.mjs document.md`
 
-1. **light** - Thème clair conventionnel (par défaut)
-2. **dark** - Thème sombre conventionnel
-3. **blog** - Thème de type blog avec une mise en page adaptée
-4. **government** - Thème formel de document gouvernemental
+Specify output: `node topdf.mjs document.md -o output.pdf`
 
-## Création de thèmes personnalisés
+Use a specific theme: `node topdf.mjs document.md -t dark`
 
-Pour créer votre propre thème :
+Help: `node topdf.mjs --help`
 
-1. Ajoutez un fichier SCSS dans le dossier `lib/themes/`, par exemple `mon-theme.scss`
-2. Mettez à jour la fonction `getAvailableThemes()` dans `lib/themes/index.mjs` pour inclure votre nouveau thème
+## Available Themes
 
-## Licence
+- **light** - Default light theme
+- **dark** - Dark theme
+- **blog** - Blog layout theme
+- **government** - Formal government document theme
+
+## Custom Themes
+
+Add your SCSS file to `lib/themes/` and update `getAvailableThemes()` in `lib/themes/index.mjs`.
+
+## License
 
 MIT
