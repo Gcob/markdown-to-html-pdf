@@ -78,4 +78,4 @@ MIT - See [LICENSE](LICENSE) for details.
 
 ## Disclaimer
 
-This project was created 100% by Claude, an AI assistant by Anthropic.
+This project was created and maintained mostly by Claude Code, an AI assistant by Anthropic.
