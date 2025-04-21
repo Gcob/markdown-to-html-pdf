@@ -193,20 +193,20 @@ hr {
 }
 
 // Print styles
-@media print {
+
   // Unbreakable sections
   .print-section {
     page-break-inside: avoid;
     break-inside: avoid;
     margin-bottom: 1rem;
   }
-  
+
   // Force headings to start on a new page
   h1, h2 {
     page-break-before: always;
     break-before: always;
   }
-  
+
   // But make sure the first heading doesn't create a blank page
   .container > h1:first-child,
   .container > .print-section:first-child h1,
@@ -214,4 +214,4 @@ hr {
     page-break-before: avoid;
     break-before: avoid;
   }
-}
+

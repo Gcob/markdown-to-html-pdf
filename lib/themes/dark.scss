@@ -188,3 +188,34 @@ hr {
   outline: 0.125rem solid $link-color;
   outline-offset: 0.125rem;
 }
+
+// Override dark theme with light colors for better printing
+body {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+}
+
+// Unbreakable sections
+.print-section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+// Force headings to start on a new page
+h1, h2 {
+  page-break-before: always;
+  break-before: always;
+}
+
+// But make sure the first heading doesn't create a blank page
+.container > h1:first-child,
+.container > .print-section:first-child h1,
+.container > .print-section:first-child h2 {
+  page-break-before: avoid;
+  break-before: avoid;
+}

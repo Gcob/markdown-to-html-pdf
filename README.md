@@ -36,6 +36,8 @@ Specify output: `node tohtml.mjs document.md -o output.html`
 
 Don't open in browser: `node tohtml.mjs document.md --no-open`
 
+Disable unbreakable sections: `node tohtml.mjs document.md --no-unbreakable-sections`
+
 Help: `node tohtml.mjs --help`
 
 ### PDF Conversion
@@ -47,6 +49,8 @@ Convert Markdown to PDF: `node topdf.mjs document.md`
 Specify output: `node topdf.mjs document.md -o output.pdf`
 
 Use a specific theme: `node topdf.mjs document.md -t dark`
+
+Disable unbreakable sections: `node topdf.mjs document.md --no-unbreakable-sections`
 
 Help: `node topdf.mjs --help`
 
@@ -60,6 +64,13 @@ Help: `node topdf.mjs --help`
 ## Custom Themes
 
 Add your SCSS file to `lib/themes/` and update `getAvailableThemes()` in `lib/themes/index.mjs`.
+
+## Print Layout Features
+
+- **Unbreakable Sections**: By default, content between headings is wrapped in "unbreakable" sections for better printing. This prevents awkward page breaks in the middle of content sections.
+  - Headings (h1, h2) will start on new pages, but the first heading won't cause a blank page
+  - Content sections will be kept together when possible
+  - You can disable this feature with the `--no-unbreakable-sections` flag
 
 ## License
 
