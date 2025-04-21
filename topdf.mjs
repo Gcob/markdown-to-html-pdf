@@ -45,6 +45,13 @@ async function main() {
             outputFile: outputPdfFile,
             fontSize: args.fontSize,
             openFile: !args.noOpen,
+            printBackground: true,
+            // margin: {
+            //     top: '71mm',
+            //     right: '15mm',
+            //     bottom: '20mm',
+            //     left: '15mm'
+            // },
         });
         console.log(`Conversion successful! PDF file generated: ${pdfFile}${args.noOpen ? '' : ' and opened with your default PDF viewer'}`);
     } catch (error) {

@@ -29,7 +29,7 @@ $link-hover-color: #005fa3;
 $code-bg: #f0f4f8;
 $border-color: #e0e0e0;
 $blockquote-color: #555;
-$highlight-bg: #eef6fb;
+$highlight-bg: #e5ebef;
 $accent-color: #ffe066;
 
 // Styles de base
@@ -90,7 +90,6 @@ pre {
 code {
   background-color: $accent-color;
   padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
   font-family: var-init.$code-font-family;
 }
 
@@ -99,9 +98,7 @@ blockquote {
   border-left: 0.375rem solid $link-color;
   color: $blockquote-color;
   background-color: $highlight-bg;
-  padding: 0.75rem 1.25rem;
-  font-style: italic;
-  border-radius: 0.25rem;
+  padding: 0.25rem .75rem;
 }
 
 // Images
