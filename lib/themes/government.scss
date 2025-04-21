@@ -1,0 +1,356 @@
+// Government document theme
+@use "sass:color";
+
+// Variables
+$bg-color: #ffffff;
+$text-color: #222222;
+$heading-color: #003366;
+$link-color: #0066cc;
+$link-hover-color: #003366;
+$code-bg: #f8f8f8;
+$border-color: #cccccc;
+$blockquote-color: #444444;
+$highlight-bg: #f0f7ff;
+$header-bg: #003366;
+$accent-color: #8b0000; // Couleur d'accentuation (rouge foncé)
+
+// Styles de base
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-size: 12pt;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(to right, #002D62, #315B96, #002D62);
+  }
+}
+
+// En-tête
+.gov-header {
+  border-bottom: 2px solid $border-color;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+
+  .gov-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $heading-color;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .gov-document-type {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: $accent-color;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
+// Typographie
+h1, h2, h3, h4, h5, h6 {
+  color: $heading-color;
+  margin-top: 1.5em;
+  margin-bottom: 0.7em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 18pt;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 0.5rem;
+  margin-top: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 16pt;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  font-size: 14pt;
+}
+
+h4 {
+  font-size: 13pt;
+  text-decoration: underline;
+}
+
+h5 {
+  font-size: 12pt;
+  font-style: italic;
+}
+
+h6 {
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: normal;
+}
+
+// Liens
+a {
+  color: $link-color;
+  text-decoration: underline;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Paragraphes et texte
+p {
+  margin: 0.8em 0;
+  text-align: justify;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+// Listes
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em;
+
+  li {
+    margin: 0.5em 0;
+    text-align: justify;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+// Blocs de code
+pre {
+  background-color: $code-bg;
+  border: 1px solid $border-color;
+  padding: 1em;
+  overflow: auto;
+  margin: 1.5em 0;
+  font-size: 10pt;
+
+  code {
+    background: none;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+
+code {
+  background-color: $code-bg;
+  padding: 0.2em 0.4em;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10pt;
+  border: 1px solid #e0e0e0;
+}
+
+// Citations
+blockquote {
+  border-left: 3px solid $heading-color;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  background-color: $highlight-bg;
+  color: $blockquote-color;
+  font-style: italic;
+
+  p {
+    margin: 0.5em 0;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+  border: 1px solid $border-color;
+}
+
+// Tableaux
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 11pt;
+
+  th, td {
+    border: 1px solid $border-color;
+    padding: 0.8em 1em;
+    text-align: left;
+  }
+
+  th {
+    background-color: $heading-color;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
+
+// Séparateurs
+hr {
+  border: none;
+  height: 1px;
+  background-color: $border-color;
+  margin: 2em 0;
+}
+
+// Styles pour highlight.js
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: $code-bg;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+// Numéros de page
+.page-number {
+  text-align: center;
+  font-size: 10pt;
+  color: #666;
+  margin-top: 3em;
+  border-top: 1px solid $border-color;
+  padding-top: 1em;
+}
+
+// Pied de page
+.footer {
+  margin-top: 3em;
+  border-top: 1px solid $border-color;
+  padding-top: 1em;
+  font-size: 9pt;
+  color: #666;
+  text-align: center;
+}
+
+// Numérotation des sections
+.section-number {
+  font-weight: normal;
+  color: $accent-color;
+  margin-right: 0.5em;
+}
+
+// Annexes
+.appendix {
+  margin-top: 3em;
+
+  h2 {
+    font-size: 14pt;
+    color: $accent-color;
+  }
+}
+
+// Références
+.references {
+  margin-top: 3em;
+
+  h2 {
+    font-size: 14pt;
+  }
+
+  ol {
+    li {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+// Signature
+.signature-block {
+  margin-top: 4em;
+
+  .signature-line {
+    border-bottom: 1px solid $border-color;
+    width: 50%;
+    margin: 3em auto 1em;
+  }
+
+  .signature-name {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .signature-title {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.3em;
+  }
+
+  .signature-date {
+    text-align: center;
+    margin-top: 1em;
+  }
+}
+
+// Ajustements spécifiques pour l'impression
+@media print {
+  body {
+    font-size: 12pt;
+  }
+
+  .container {
+    padding: 0;
+    max-width: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  img, table, figure {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}

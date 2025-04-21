@@ -1,0 +1,29 @@
+{
+  "name": "markdown-to-html",
+  "version": "1.0.0",
+  "description": "Convertisseur de fichiers Markdown en pages HTML avec thèmes",
+  "type": "module",
+  "main": "tohtml.mjs",
+  "scripts": {
+    "start": "node tohtml.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markdown",
+    "html",
+    "converter",
+    "themes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^9.1.0",
+    "sass": "^1.69.0",
+    "yargs": "^17.7.2",
+    "highlight.js": "^11.8.0",
+    "open": "^9.1.0"
+  },
+  "bin": {
+    "tohtml": "./tohtml.mjs"
+  }
+}
