@@ -41,8 +41,12 @@ async function main() {
         }
 
         // Convert HTML to PDF
-        const pdfFile = await convertHtmlToPdf(htmlFile, { outputFile: outputPdfFile, fontSize: args.fontSize });
-        console.log(`Conversion successful! PDF file generated: ${pdfFile}`);
+        const pdfFile = await convertHtmlToPdf(htmlFile, { 
+            outputFile: outputPdfFile, 
+            fontSize: args.fontSize,
+            openFile: !args.noOpen
+        });
+        console.log(`Conversion successful! PDF file generated: ${pdfFile}${args.noOpen ? '' : ' and opened with your default PDF viewer'}`);
     } catch (error) {
         console.error(`Error: ${error.message}`);
         process.exit(1);

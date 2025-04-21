@@ -8,8 +8,8 @@ async function main() {
         const args = parseArgs();
 
         if (args.inputFile) {
-            await convertMarkdownToHtml(args.inputFile, args);
-            console.log(`Conversion successful! HTML file generated and opened in your browser.`);
+            const htmlFile = await convertMarkdownToHtml(args.inputFile, args);
+            console.log(`Conversion successful! HTML file generated: ${htmlFile}${args.noOpen ? '' : ' and opened in your browser'}`);
         }
     } catch (error) {
         console.error(`Error: ${error.message}`);
