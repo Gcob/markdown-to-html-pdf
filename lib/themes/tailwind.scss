@@ -1,0 +1,9 @@
+@use 'var-init' as *;
+@use 'global' as *;
+
+/* Tailwind CSS via CDN */
+:root {
+  --tailwind-url: 'https://cdn.tailwindcss.com';
+}
+
+/* Custom Tailwind classes will be applied via script */

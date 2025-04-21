@@ -54,7 +54,8 @@ Help: `node topdf.mjs --help`
 
 - **light** - Default light theme
 - **blog** - Blog layout theme
-- **government** - Formal government document theme
+- **gov** - Formal government document theme
+- **tailwind** - Modern theme powered by Tailwind CSS
 
 ## Custom Themes
 

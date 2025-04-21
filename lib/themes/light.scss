@@ -1,42 +1,71 @@
-// Light theme
-@use "sass:color";
-@use "var-init";
+$base-font-family: 'Outfit', sans-serif;
+$code-font-family: 'JetBrains Mono', monospace;
+$sans-font: 'Outfit', sans-serif;
+$serif-font: 'DM Sans', sans-serif;
+
+@use "var-init" with (
+  $base-font-family: $base-font-family,
+  $code-font-family: $code-font-family,
+  $sans-font: $sans-font,
+  $serif-font: $serif-font
+);
+
 @use "global";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=JetBrains+Mono&family=Outfit:wght@400;600&display=swap');
+
+body {
+  font-family: var-init.$base-font-family;
+  background-color: var-init.$bg-color;
+  color: var-init.$text-color;
+  line-height: var-init.$base-line-height;
+}
 
 // Theme variables
-$bg-color: #ffffff;
-$text-color: #333333;
-$heading-color: #222222;
-$link-color: #0066cc;
-$link-hover-color: #004499;
-$code-bg: #f5f5f5;
-$border-color: #dddddd;
-$blockquote-color: #666666;
-$highlight-bg: #f5f7f9;
+$bg-color: #fdfdfd;
+$text-color: #2c2c2c;
+$heading-color: #1a1a1a;
+$link-color: #0077cc;
+$link-hover-color: #005fa3;
+$code-bg: #f0f4f8;
+$border-color: #e0e0e0;
+$blockquote-color: #555;
+$highlight-bg: #eef6fb;
+$accent-color: #ffe066;
 
 // Styles de base
 body {
   background-color: $bg-color;
   color: $text-color;
-  font-family: var-init.$base-font-family;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+  font-family: var-init.$sans-font;
 }
 
 // Typographie
 h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
+  font-family: var-init.$base-font-family;
+  margin-bottom: 0.5rem;
 }
 
-//h1 {
-//  border-bottom: 0.0625rem solid $border-color;
-//}
-//
-//h2 {
-//  border-bottom: 0.0625rem solid $border-color;
-//}
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
 
 // Liens
 a {
   color: $link-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
 
   &:hover {
     color: $link-hover-color;
@@ -48,35 +77,50 @@ a {
 pre {
   background-color: $code-bg;
   border: 1px solid $border-color;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  overflow-x: auto;
 
   code {
-    color: $text-color;
+    color: #1d3557;
     font-family: var-init.$code-font-family;
   }
 }
 
 code {
-  background-color: $code-bg;
+  background-color: $accent-color;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
   font-family: var-init.$code-font-family;
 }
 
 // Citations
 blockquote {
-  border-left: 0.25rem solid $link-color;
+  border-left: 0.375rem solid $link-color;
   color: $blockquote-color;
   background-color: $highlight-bg;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
+  font-style: italic;
+  border-radius: 0.25rem;
 }
 
 // Images
 img {
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+  border-radius: 0.375rem;
+  max-width: 100%;
+  height: auto;
 }
 
 // Tableaux
 table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+
   th, td {
     border: 1px solid $border-color;
+    padding: 0.75rem;
   }
 
   th {
@@ -85,22 +129,28 @@ table {
   }
 
   tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(0, 0, 0, 0.025);
   }
 }
 
 // Séparateurs
 hr {
+  height: 1px;
   background-color: $border-color;
+  border: none;
+  margin: 2rem 0;
 }
 
 // Styles pour highlight.js
 .hljs {
   background: $code-bg;
+  padding: 1rem;
+  border-radius: 0.375rem;
 }
 
-// Ajustements de focalisation
+// Focus
 *:focus {
   outline: 0.125rem solid $link-color;
   outline-offset: 0.125rem;
+  transition: outline 0.15s ease;
 }
