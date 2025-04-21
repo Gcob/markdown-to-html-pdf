@@ -15,7 +15,8 @@ async function main() {
         // Determine if the input is a Markdown file
         if (args.inputFile.toLowerCase().endsWith('.md')) {
             // Convert Markdown to HTML first
-            const options = { ...args, noOpen: true }; // Ensure no browser is opened
+            // Ensure no browser is opened and pass all other options
+            const options = { ...args, noOpen: true };
             htmlFile = await convertMarkdownToHtml(args.inputFile, options);
             console.log(`Markdown converted to HTML: ${htmlFile}`);
         } else if (!args.inputFile.toLowerCase().endsWith('.html')) {
@@ -40,7 +41,7 @@ async function main() {
         }
 
         // Convert HTML to PDF
-        const pdfFile = await convertHtmlToPdf(htmlFile, { outputFile: outputPdfFile });
+        const pdfFile = await convertHtmlToPdf(htmlFile, { outputFile: outputPdfFile, fontSize: args.fontSize });
         console.log(`Conversion successful! PDF file generated: ${pdfFile}`);
     } catch (error) {
         console.error(`Error: ${error.message}`);
