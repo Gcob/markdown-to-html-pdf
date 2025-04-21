@@ -1,5 +1,5 @@
 {
-  "name": "markdown-to-html",
+  "name": "markdown-to-html-pdf",
   "version": "1.0.0",
   "description": "Markdown to HTML converter with themes and PDF export",
   "type": "module",

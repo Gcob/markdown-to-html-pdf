@@ -15,8 +15,8 @@ This project uses pnpm for faster, disk-space efficient dependency management.
 npm install -g pnpm
 
 # Install dependencies
-git clone <repo-url>
-cd mdm
+git clone git@github.com:Gcob/markdown-to-html-pdf.git
+cd markdown-to-html-pdf
 pnpm install
 ```
 
@@ -63,4 +63,8 @@ Add your SCSS file to `lib/themes/` and update `getAvailableThemes()` in `lib/th
 
 ## License
 
-MIT
+MIT - See [LICENSE](LICENSE) for details.
+
+## Disclaimer
+
+This project was created 100% by Claude, an AI assistant by Anthropic.
