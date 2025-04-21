@@ -24,16 +24,23 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.5rem;
+  line-height: 1.2;
   padding-bottom: 0.5rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 h2 {
   font-size: 2rem;
+  line-height: 1.2;
   padding-bottom: 0.3rem;
 }
 
 h3 {
   font-size: 1.75rem;
+  line-height: 1.2;
 }
 
 h4 {
@@ -150,19 +157,19 @@ hr {
 .print-section {
   page-break-inside: avoid;
   break-inside: avoid;
-  margin-bottom: 1rem;
 }
 
-// Force headings to start on a new page
-h1, h2 {
-  page-break-before: always;
-  break-before: always;
-}
 
-// But make sure the first heading doesn't create a blank page
+// Make sure headings never create blank pages
 .container > h1:first-child,
+.container > h2:first-child,
 .container > .print-section:first-child h1,
 .container > .print-section:first-child h2 {
   page-break-before: avoid;
   break-before: avoid;
 }
+
+@page {
+  margin: 0.8in 0.6in;
+}
+

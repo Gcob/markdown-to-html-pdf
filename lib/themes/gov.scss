@@ -70,7 +70,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 18pt;
   text-align: center;
-  border-bottom: 1px solid var-init.$border-color;
   margin-top: 2em;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -78,7 +77,6 @@ h1 {
 
 h2 {
   font-size: 16pt;
-  border-bottom: 1px solid var-init.$border-color;
 }
 
 h3 {

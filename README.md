@@ -28,8 +28,6 @@ For global installation (optional): `pnpm install -g .`
 
 Basic: `node tohtml.mjs document.md`
 
-With theme: `node tohtml.mjs document.md -t dark`
-
 List themes: `node tohtml.mjs --list-themes`
 
 Specify output: `node tohtml.mjs document.md -o output.html`
@@ -48,8 +46,6 @@ Convert Markdown to PDF: `node topdf.mjs document.md`
 
 Specify output: `node topdf.mjs document.md -o output.pdf`
 
-Use a specific theme: `node topdf.mjs document.md -t dark`
-
 Disable unbreakable sections: `node topdf.mjs document.md --no-unbreakable-sections`
 
 Help: `node topdf.mjs --help`
@@ -57,7 +53,6 @@ Help: `node topdf.mjs --help`
 ## Available Themes
 
 - **light** - Default light theme
-- **dark** - Dark theme
 - **blog** - Blog layout theme
 - **government** - Formal government document theme
 
